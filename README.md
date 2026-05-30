@@ -12,8 +12,8 @@ The following tech stack will be used:
  3) composer v2.9.8
  4) Node.js v22.22.3
  5) laravel breeze
- 6) LiveWire
- 7) MySQL
+ 6) Livewire 3 (Volt), Tailwind CSS
+ 7) SQLite Database for developing, and MySQL for Deploy
 
 # Features
  1) Home page will show only Application name, Logo, and login page
