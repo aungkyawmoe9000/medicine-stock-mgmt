@@ -13,14 +13,16 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password'); // Default Bcrypt Algorithm
+            $table->enum('role', ['admin', 'data-entry'])->default('data-entry');
             $table->rememberToken();
             $table->timestamps();
         });
 
+        // Default tables for Password Resets and Sessions
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
             $table->string('token');

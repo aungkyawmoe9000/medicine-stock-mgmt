@@ -5,13 +5,11 @@ use Illuminate\Support\Facades\Session;
 use Livewire\Attributes\Layout;
 use Livewire\Volt\Component;
 
+// အဆင့် (၁) က Layout ကို အသုံးပြုမည်ဟု ညွှန်ပြခြင်း
 new #[Layout('layouts.guest')] class extends Component
 {
     public LoginForm $form;
 
-    /**
-     * Handle an incoming authentication request.
-     */
     public function login(): void
     {
         $this->validate();
@@ -24,48 +22,47 @@ new #[Layout('layouts.guest')] class extends Component
     }
 }; ?>
 
-<div>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+<div class="flex-grow flex flex-col w-full">
 
-    <form wire:submit="login">
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input wire:model="form.email" id="email" class="block mt-1 w-full" type="email" name="email" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('form.email')" class="mt-2" />
+    {{-- header area --}}
+    <header class="bg-blue-900 text-white py-6 shadow-md">
+        <div class="container mx-auto px-4 flex items-center justify-start gap-6">
+            <div class="w-32 h-16 bg-blue-100 text-blue-900 flex items-center justify-center rounded font-bold shrink-0">
+                Logo (2:1)
+            </div>
+            <h1 class="text-3xl font-bold uppercase tracking-wider">Medicine Balance Tracker</h1>
         </div>
+    </header>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+    {{-- main content area --}}
+    <main class="flex-grow flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl shadow-lg p-8 w-full max-w-md border border-blue-200">
+            <h2 class="text-2xl font-bold text-center mb-6 text-gray-700">System Login</h2>
 
-            <x-text-input wire:model="form.password" id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
+            <form wire:submit="login">
+                <div class="mb-4">
+                    <label for="username" class="block text-sm font-semibold text-gray-600 mb-2">Username</label>
+                    <input type="text" wire:model="form.username" id="username" class="w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2 border" required placeholder="Enter your username">
+                    @error('form.username') <span class="text-red-500 text-xs mt-1">{{ $message }}</span> @enderror
+                </div>
 
-            <x-input-error :messages="$errors->get('form.password')" class="mt-2" />
+                <div class="mb-6">
+                    <label for="password" class="block text-sm font-semibold text-gray-600 mb-2">Password</label>
+                    <input type="password" wire:model="form.password" id="password" class="w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2 border" required placeholder="Enter your password">
+                    @error('form.password') <span class="text-red-500 text-xs mt-1">{{ $message }}</span> @enderror
+                </div>
+
+                <button type="submit" class="w-full bg-blue-900 hover:bg-blue-800 text-white font-bold py-2.5 px-4 rounded-lg transition duration-300 ease-in-out shadow-md">
+                    <span wire:loading.remove>Login</span>
+                    <span wire:loading>Authenticating...</span>
+                </button>
+            </form>
         </div>
+    </main>
 
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember" class="inline-flex items-center">
-                <input wire:model="form.remember" id="remember" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-            </label>
-        </div>
+    {{-- footer area --}}
+    <footer class="bg-blue-900 text-white py-4 shadow-inner text-center">
+        <p class="text-sm">Copyright &copy; 2026 Woisa. All rights reserved.</p>
+    </footer>
 
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}" wire:navigate>
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
 </div>
