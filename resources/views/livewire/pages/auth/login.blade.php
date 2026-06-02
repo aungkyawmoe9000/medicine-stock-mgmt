@@ -61,8 +61,13 @@ new #[Layout('layouts.guest')] class extends Component
     </main>
 
     {{-- footer area --}}
-    <footer class="bg-blue-900 text-white py-4 shadow-inner text-center">
-        <p class="text-sm">Copyright &copy; 2026 Woisa. All rights reserved.</p>
-    </footer>
+    <footer class="bg-[#2a3c75] text-white py-5 mt-auto w-full text-center">
+    <p class="text-sm font-medium tracking-wide">
+        Developed by Aung Kyaw Moe
+    </p>
+    <p class="text-xs text-blue-200 mt-1.5 font-light tracking-wider">
+        Full-Stack Dev | AI & ML | Cloud Infra | Workspace Admin
+    </p>
+</footer>
 
 </div>

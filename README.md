@@ -12,17 +12,20 @@ The following tech stack will be used:
  3) composer v2.9.8
  4) Node.js v22.22.3
  5) laravel breeze
- 6) Livewire 3 (Volt), Tailwind CSS
+ 6) Livewire 3.8 (Volt), Tailwind CSS
  7) SQLite Database for developing, and MySQL for Deploy
 
 # Features
  1) Home page will show only Application name, Logo, and login page
  2) Create new user will not be allowed
- 3) Only Admin and User role is used
+ 3) Only Admin and Data-Entry role can be used for authentication
  4) New user will be created by an Admin which mean that only interuser will be available
- 5) Admin will not do any Data Entry
+ 5) Admin will not do any Data Entry tasks
  6) User cannot create or delete the user, they can do the edit their profile and password
- 7) Dashboard and Exporting Monthly report will be available for both user
+ 7) Dashboard and Exporting Monthly report will be available for both users
+    - Monthly report can be exported with .csv format
+    - Report is created by the filter of "Report Date", "Grant"
+    - These data will be retreieved -> Items, Brand, Unit, Expire Date (if applicable), Location, Project Code, Current Stock Balance, Monthly Average Consumption, Batch (if applicable), Will Expire at
 
 # Getting Started
  1) Follow the typical git commands

@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
 
         // Both of Admin and User Gate
         Gate::define('data-entry', function (User $user){
-            return in_array($user->role, ['admin', 'data-entry']);
+            return $user->role === 'data-entry';
         });
     }
 }

@@ -5,32 +5,49 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>Medicine Stock Management</title>
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-        <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            <livewire:layout.navigation />
+    <body class="font-sans antialiased bg-gray-50">
+        <div class="min-h-screen flex">
+            <aside class="w-64 bg-blue-900 text-white hidden md:flex flex-col sticky top-0 h-screen">
+                <div class="p-6">
+                    <h1 class="text-xl font-bold tracking-wider text-blue-100">
+                        MEDICINE STOCK
+                    </h1>
+                    <p class="text-xs text-blue-300 uppercase">Management System</p>
+                </div>
 
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white dark:bg-gray-800 shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
+                <nav class="flex-grow px-4 space-y-2">
+                    @livewire('layout.navigation')
+                </nav>
+
+                <div class="p-6 border-t border-blue-800">
+                    <livewire:welcome.navigation />
+                </div>
+            </aside>
+
+            <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
+                <header class="bg-white shadow-sm border-b z-10">
+                    <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+                        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                            {{ $header ?? 'Dashboard' }}
+                        </h2>
+                        <div class="md:hidden">
+                            </div>
                     </div>
                 </header>
-            @endif
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+                <main class="flex-1 overflow-y-auto p-6">
+                    {{ $slot }}
+                </main>
+            </div>
         </div>
     </body>
 </html>
