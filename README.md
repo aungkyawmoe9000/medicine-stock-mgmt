@@ -1,4 +1,4 @@
-# Woisa Medicine Management System
+# Medicine Stock Management System
 
 This application is created for the following purposes:
 1. To manage medicine data such as distribution, stock-in, stock-out, expiry, and hand-on balance.
@@ -36,8 +36,9 @@ Make sure you have PHP 8.4+, Composer, and Node.js installed on your machine.
 
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/your-username/woisa-medicine-mgmt.git](https://github.com/your-username/woisa-medicine-mgmt.git)
-   cd woisa-medicine-mgmt
+   git clone [https://github.com/aungkyawmoe9000/medicine-stock-mgmt.git]
+   cd medicine-stock-mgmt
+
 
 2. Install PHP dependencies:
    ```Bash
@@ -84,5 +85,5 @@ Contributions are what make the open-source community such an amazing place to l
 Distributed under the MIT License. See License file for more information.
 
 ### Contact / Acknowledgements
- * Project Link: [http://github.com/aungkyawmoe9000/woisa-medicine-mgmt]
+ * Project Link: [https://github.com/aungkyawmoe9000/medicine-stock-mgmt.git]
  * Thanks to Laravel, Livewire, and Tailwind CSS for their awesome frameworks.
