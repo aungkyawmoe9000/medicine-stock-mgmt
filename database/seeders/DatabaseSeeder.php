@@ -18,16 +18,16 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
         // Create a Admin user for testing purposes
         User::factory()->create([
-            'name' => 'woisa-admin',
-            'email' => 'admin@woisa.org',
+            'name' => 'admin',
+            'email' => 'admin@example.com',
             'password' => '4321W0isa', // Auto Hash by Bcrypt due to the casts from User Model
             'role' => 'admin',
         ]);
 
         // Create Data-Entry user
         User::factory()->create([
-            'name' => 'woisa-data-entry',
-            'email' => 'data-entry@woisa.org',
+            'name' => 'data-entry',
+            'email' => 'data-entry@example.com',
             'password' => '4321W0isa', // Auto Hash by Bcrypt due to the casts from User Model
             'role' => 'data-entry',
         ]);
