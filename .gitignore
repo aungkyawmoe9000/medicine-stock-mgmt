@@ -52,7 +52,11 @@ Thumbs.db
 
 .env.testing
 
-
+# Laravel Framework temporary files
+/storage/framework/cache/data/*
+/storage/framework/sessions/*
+/storage/framework/testing/*
+/storage/framework/views/*
 
 
 
